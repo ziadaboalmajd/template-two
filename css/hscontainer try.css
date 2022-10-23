@@ -1,0 +1,632 @@
+ /* start variables */
+ :root{
+  --main-color: #19c8fa;
+  --secondary-color: #1f2021;
+  --white-color: #d2d2d3;
+  --transportprimary-color: rgb(15 116 143 / 70%);
+ }
+ /* End variables */
+ /* start Global Rules */
+ * {
+     -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+     box-sizing: border-box;
+ }
+ body {
+     font-family: 'Open Sans', sans-serif;
+     background-color: #1f2021;
+ }
+ .container{
+     margin-left: auto;
+     margin-right: auto;
+     padding-right: 15px;
+     padding-left: 15px;
+ }
+ /* responsive query */
+ @media (min-width: 390px) {
+     .container {
+     width: 360px;
+  }
+}
+ @media (min-width: 576px) {
+     .container {
+     width: 540px;
+  }
+}
+@media (min-width: 768px) {
+     .container {
+     width: 720px;
+  }
+}
+@media (min-width: 992px) {
+     .container {
+     width: 960px;
+  }
+}
+@media (min-width: 1200px) {
+     .container {
+     width: 1140px;
+  }
+}
+@media (min-width: 1400px) {
+     .container {
+     width: 1282px;
+   }
+  }
+  @media print {
+     body{-webkit-print-color-adjust:exact}
+  }
+  /* End Gloabel Rules */
+  /* start classes */
+     /* .uniqeheader{} */
+  /* start header */
+  header .container{
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    /* to make any child element modify with absoulte */
+    position: relative;
+    margin-top: 25px;
+    padding-bottom:25px;
+}
+ header .container::after {
+   content: "";
+   position: absolute;
+   background-color: #636364;
+   width: calc(100% - 45px);
+   height: 2px;
+   bottom: 0;
+   left: 35px;
+   opacity: 0.5;
+}
+header .container .logo img {
+  width: 160px;
+  height: 60px;
+}
+ header .container .navbar{
+   text-align: center;
+   display: flex;
+   flex: 1;
+   justify-content: flex-end;
+}
+ header .container .navbar .navcont{
+    list-style: none;
+    display: flex;
+    align-content: space-between;
+    align-items: center;
+}
+ header .container .navbar .navsearch{
+   display: flex;
+   align-items: center;
+   position: relative;
+
+   margin-left: 125px;
+}
+ header .container .navbar .navsearch::before{
+   content: "";
+   position: absolute;
+   background-color: #636364;
+   width: 1px;
+   height: 30px;
+   bottom: 15%;
+   left: calc(-100% - 10px);
+   opacity: 0.5;
+}
+ header .container .navbar .navsearch i{
+   color: var(--white-color) ;
+   /* font-weight: 400; */
+   /* icon font can't work lessthan 600 fontweight */
+   font-size: 15px;
+   /* can't make a before element for <i> cause it self is before */
+}
+ /* header .container .navbar ul li:last-child  {
+   margin-right: 125px;
+} */
+  header .container .navbar ul li a{
+    text-decoration: none;
+    color: var(--white-color);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 15px;
+    transition: 0.3s;
+    position: relative;
+    /* this change will make border in the before line */
+    padding: 45px 20px;
+}
+/* start nav changes */
+/*nav bar  */
+header .container .navbar ul li a:hover,
+header .container .navbar ul li a:active{
+  color: var(--main-color);
+}
+              /* my way */
+/* header .container .navbar ul li  a:hover::before,
+header .container .navbar ul li  a:active::before{
+  display: block;
+} */
+/* just for practise */
+/* select special li in hover before */
+/* header .container .navbar ul li:nth-child(3)  a:hover::before,
+header .container .navbar ul li:nth-child(3)  a:active::before{
+    right: calc(100% - 120px);
+    width: 75px;
+}
+header .container .navbar ul li a::before{
+  content: "";
+  background-color: var(--main-color);
+  width: 65px;
+  height: 2px;
+  position: absolute;
+  top: 322%;
+  right: calc(35% - 40px);
+  display: none;
+} */
+/* work perfect */
+/* another way */
+header .container .navbar ul li a:hover,
+header .container .navbar ul li a:active{
+  border-bottom: solid 1px var(--main-color);
+}
+/* nav search */
+header .container .navbar .navsearch form{
+  display: none;
+}
+header .container .navbar .navsearch form input{
+    background-color: transparent;
+    color: var(--white-color);
+    border: 2px var(--white-color) solid;
+    border-radius: 25px;
+    height: 25px;
+    caret-color: var(--main-color);
+}
+header .container .navbar .navsearch:hover i,
+header .container .navbar .navsearch:hover::before,
+header .container .navbar .navsearch:active i,
+header .container .navbar .navsearch:active::before{
+  display: none;
+}
+header .container .navbar .navsearch:hover{
+  margin-left: 0;
+}
+header .container .navbar .navsearch:hover form,
+header .container .navbar .navsearch:active form{
+  display: flex;
+}
+header .container .navbar .navsearch form input:focus-visible{
+    outline: none;
+}
+header .container .navbar .navsearch form input::selection{
+  color: #1f2021;
+  background-color: var(--white-color);
+}
+header .container .navbar .navsearch form input::placeholder{
+  color: var(--white-color);
+  font-weight: 600;
+  padding-left: 10px;
+}
+     /* responsive header */
+ header .container .navbar  .bar{
+   display: none;
+ }
+@media (max-width:1024) and (min-width:769){
+   
+}
+@media (max-width:768px) and (min-width:435px){
+  header .container .logo img {
+    width: 200px;
+    height: 85px;
+  }
+  header .container .navbar {
+    text-align: center;
+    display: flex;
+    flex: 1;
+    justify-content: flex-start;
+    flex-direction: row-reverse;
+ }
+  header .container .navbar .navsearch i{
+    color: var(--white-color);
+    font-size: 25px;
+ }
+  header .container .navbar .navsearch::before{
+    width: 5px;
+    height: 45px;
+    bottom: -50%;
+    left: 35px;
+ }
+  header .container .navbar .navcont {
+    display:none;
+  }
+  header .container .navbar .navcont li {
+    margin: 40px 0;
+  }
+  header .container .navbar  .bar{
+    display: flex;
+    font-size: 25px;
+    color: var(--white-color) ;
+    margin-left: 40px;
+  }
+ header .container .navbar i:hover + ul{
+  background-color: #1f2021;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  align-items: flex-start;
+}
+}
+@media (max-width:434px) and (min-width:376px){
+  header .container .logo img {
+    width: 150px;
+    height: 60px;
+  }
+  header .container .navbar {
+    text-align: center;
+    display: flex;
+    flex: 1;
+    justify-content: flex-start;
+    flex-direction: row-reverse;
+ }
+  header .container .navbar .navsearch i{
+    color: var(--white-color) ;
+    font-size: 20px;
+ }
+  header .container .navbar .navsearch form input{
+    height: 25px;
+    width: 140px;
+ }
+  header .container .navbar .navsearch::before{
+    width: 5px;
+    height: 45px;
+    bottom: -50%;
+    left: 35px;
+ }
+  header .container .navbar .navcont {
+    display:none;
+  }
+  header .container .navbar .navcont li {
+    margin: 40px 0;
+  }
+  header .container .navbar  .bar{
+    display: flex;
+    font-size: 20px;
+    color: var(--white-color);
+    margin-left: 40px;
+  }
+ header .container .navbar i:hover + ul{
+  background-color: #1f2021;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  align-items: flex-start;
+}
+}
+@media (max-width:375px) and (min-width:331px){
+  header .container{
+    justify-content: flex-end;
+  }
+  header .container .logo img {
+    width: 150px;
+    height: 60px;
+  }
+  header .container .navbar {
+    text-align: center;
+    display: flex;
+    flex: 1;
+    justify-content: flex-start;
+    flex-direction: row-reverse;
+ }
+  header .container .navbar .navsearch i{
+    color: var(--white-color);
+    font-size: 18px;
+ }
+  header .container .navbar .navsearch form input{
+    height: 25px;
+    width: 140px;
+ }
+  header .container .navbar .navsearch::before{
+    width: 5px;
+    height: 45px;
+    bottom: -50%;
+    left: 35px;
+ }
+  header .container .navbar .navcont {
+    display:none;
+  }
+  header .container .navbar .navcont li {
+    margin: 40px 0;
+  }
+  header .container .navbar  .bar{
+    display: flex;
+    font-size: 20px;
+    color: var(--white-color) ;
+    margin-left: 40px;
+  }
+ header .container .navbar i:hover + ul{
+  background-color: #1f2021;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  align-items: flex-start;
+}
+}
+@media (max-width:330px) {
+  header .container .logo img {
+    width: 120px;
+    height: 50px;
+  }
+  header .container .navbar {
+    text-align: center;
+    display: flex;
+    flex: 1;
+    justify-content: flex-start;
+    flex-direction: row-reverse;
+ }
+  header .container .navbar .navsearch {
+    margin-left: 20px;
+    padding: 0 5px;
+ }
+  header .container .navbar .navsearch i{
+    color: var(--white-color) ;
+    font-size: 18px;
+ }
+  header .container .navbar .navsearch form input{
+    height: 30px;
+    width: 100px;
+ }
+ header .container .navbar .navsearch form input::placeholder{
+  text-align: center;
+}
+  header .container .navbar .navsearch::before{
+    width: 3px;
+    height: 35px;
+    bottom: -40%;
+    left: 35px;
+ }
+  header .container .navbar .navcont {
+    display:none;
+  }
+  header .container .navbar .navcont li {
+    margin: 40px 0;
+  }
+  header .container .navbar  .bar{
+    display: flex;
+    font-size: 20px;
+    color: var(--white-color) ;
+    margin-left: 20px;
+    align-items: center;
+  }
+ header .container .navbar i:hover + ul{
+  background-color: #1f2021;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  align-items: flex-start;
+}
+ header .container .navbar i:hover + ul li {
+  margin: 20px 0;
+}
+ header .container .navbar i:hover + ul li a{
+  font-size: 10px;
+  padding: 7px 0;
+}
+}
+/* end header */
+/* start heading */
+.heading{
+  position: relative;
+}
+.heading .container {
+  /* two ways of the hscontainer */
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.heading .container .hscontainer {
+  width: 100vh;
+  position: absolute;
+  top: 0;
+  height: 87vh;
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  /* two ways of the hscontainer */
+  /* width: 100vh;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center; */
+}
+/* image */
+.heading::before {    
+  /* two ways of the hscontainer */
+  content: "";
+  background-color: #1f2021;
+  background-image: url(../img/pexels-anton-atanasov-226721.jpg);
+  background-size: cover;
+  position: absolute;
+  top: -115px;
+  right: 0px;
+  bottom: 45px;
+  left: 0px;
+  opacity: 0.7;
+  z-index: -2;
+  /* 100vh */
+  height: 100vh;
+}
+.heading .container .headcont{
+    width: 735px;
+    padding-left: 185px;
+    background: var(--transportprimary-color);
+    height: 300px;
+    position: absolute;
+    top: 150px;
+    left: -50px;
+    /* opacity: 0.7; */
+} 
+/* image */
+/* another way */
+/* .heading .container{
+  min-height: 100vh;
+  background-color: #1f2021;
+  background-image: url(../img/pexels-anton-atanasov-226721.jpg);
+  background-size: cover;
+  position: relative;
+}
+.heading .container .overlay{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0 0 0 / 60%);
+} */
+/* heading content */
+.heading .container .headcont h1,
+.heading .container .headcont h2{
+  color: #ffffff; 
+  text-transform: uppercase;
+  font-weight: normal;
+  line-height: 5vh;
+}
+.heading .container .headcont p{
+  color: #ffffff;
+   font-size: 12px;
+    width: 510px;
+  line-height: 2;
+  padding-top: 15px;
+}
+/* responsive design */
+@media (max-width:760px) {
+
+}
+@media (max-width:760px) {
+
+}
+@media (max-width:760px) {
+
+}
+@media (max-width:760px) {
+
+}
+@media (max-width:760px) {
+
+
+}
+/* just practise */
+/* .heading .container .arrow:hover{
+  content: "";
+  background-color: #1f2021;
+  background-image: url(../img/pexels-pixabay-2150.jpg);
+  background-size: cover;
+  position: absolute;
+  top: -115px;
+  right: 0px;
+  bottom: 45px;
+  left: 0px;
+  opacity: 0.7;
+  z-index: -2;
+  } */
+/* just practise */
+.heading .container .hscontainer .arrow{
+    position: absolute;
+    top: 35%;
+    font-size: 40px;
+    font-weight: 600;
+    color: var(--white-color);
+}
+/* two way to add over lay forthe arrows */
+/* arrow background */
+/* .heading .container .arrow::after{
+    content: "";
+    background-color: var(--white-color);
+    opacity: 0.5;
+    width: 35px;
+    height: 50px;
+    position: absolute;
+    left: 0;
+}
+*/
+.heading .container .hscontainer .arright::after{
+  right: 0; 
+  left: initial !important;
+}
+.heading .container .hscontainer .arleft{
+  /* two ways of the hscontainer */
+  left: -40%;
+/* left: 0; */
+}
+.heading .container .hscontainer .arright{
+  /* two ways of the hscontainer */
+  right: -40%;
+/* right: 0; */
+} 
+.heading .container .hscontainer .bullets{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  list-style: none;
+}
+/* just practice */
+.heading .container .hscontainer .bullets li .frcircle{
+  padding: 0 10px ;
+  color: var(--white-color);
+  font-size: 15px;
+  /* add costum icon to the image changer  */
+  /* position: relative; */
+}
+.heading .container .hscontainer .bullets li .secircle{
+  display: none;
+  color: var(--main-color);
+  padding: 0 10px ;
+  font-size: 15px;
+}
+.heading .container .hscontainer .bullets li:hover  .secircle{
+  display: block;
+}
+.heading .container .hscontainer .bullets li:hover .frcircle{
+  display: none; 
+  /* position: absolute; */
+  /* two diffrent shape */
+}
+/* just practise */
+/* just practise */
+/* .heading .container .bullets li span{
+  display: none;
+}
+.heading .container .bullets li:hover span {
+  display: block;
+}
+.heading .container .bullets li:hover i{
+  display: none;
+}
+.heading .container .bullets li:hover{
+  padding: 0 25px;
+} */
+/* add costum icon to the image changer  */
+/* costum icon */
+/*
+ .icon-untitled .path1:before {
+  content: "\e900";
+  color: #2f87f1;
+}
+.icon-untitled .path2:before {
+  content: "\e901";
+  color: #1edbea;
+  margin-left: -1em;
+} */
+/* add costum icon to the image changer  */
